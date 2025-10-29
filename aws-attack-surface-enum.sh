@@ -540,13 +540,31 @@ scan_transfer_family() {
       endpoint_type=$(echo "$details" | jq -r '.Server.EndpointType // "VPC"' 2>/dev/null)
       state=$(echo "$details" | jq -r '.Server.State // "UNKNOWN"' 2>/dev/null)
       protocols=$(echo "$details" | jq -r '.Server.Protocols // [] | join(";")' 2>/dev/null || echo "")
-      endpoint=$(echo "$details" | jq -r '.Server.EndpointDetails.Address // ""' 2>/dev/null)
+      
+      # Construct endpoint based on type
+      if [ "$endpoint_type" = "PUBLIC" ]; then
+        # PUBLIC endpoints follow pattern: {ServerId}.server.transfer.{Region}.amazonaws.com
+        endpoint="${server_id}.server.transfer.${region}.amazonaws.com"
+      else
+        # VPC/VPC_ENDPOINT: Try to get custom hostname or IP address
+        endpoint=$(echo "$details" | jq -r '.Server.EndpointDetails.Address // ""' 2>/dev/null)
+        
+        # If no custom address, try to get VPC endpoint ID or note it's VPC-internal
+        if [ -z "$endpoint" ]; then
+          vpc_endpoint_id=$(echo "$details" | jq -r '.Server.EndpointDetails.VpcEndpointId // ""' 2>/dev/null)
+          if [ -n "$vpc_endpoint_id" ]; then
+            endpoint="VPC:${vpc_endpoint_id}"
+          else
+            endpoint="VPC-internal"
+          fi
+        fi
+      fi
+      
       row=$(jq -nr --arg r "$region" --arg id "$server_id" --arg et "$endpoint_type" --arg pr "$protocols" --arg st "$state" --arg ep "$endpoint" '[$r,$id,$et,$pr,$st,$ep] | @csv')
       write_tmp_csv "transfer-servers.csv" "$row" "$region"
     done
   fi
 }
-
 scan_ecr() {
   local region=$1
   if [ "$region" = "us-east-1" ]; then
