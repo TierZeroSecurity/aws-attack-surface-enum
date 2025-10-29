@@ -392,14 +392,14 @@ The script requires read-only permissions across services. Use the provided Clou
 
 ### Option 1: Clone Repository
 ```bash
-git clone https://github.com/yourusername/aws-attack-surface-enum.git
+git clone https://github.com/TierZeroSecurity/aws-attack-surface-enum.git
 cd aws-attack-surface-enum
 chmod +x aws-attack-surface-enum.sh
 ```
 
 ### Option 2: Direct Download
 ```bash
-curl -O https://raw.githubusercontent.com/yourusername/aws-attack-surface-enum/main/aws-attack-surface-enum.sh
+curl -O https://raw.githubusercontent.com/TierZeroSecurity/aws-attack-surface-enum/main/aws-attack-surface-enum.sh
 chmod +x aws-attack-surface-enum.sh
 ```
 
@@ -757,7 +757,7 @@ sudo apt-get install -y awscli jq coreutils
 aws configure
 
 # Download script
-curl -O https://raw.githubusercontent.com/yourusername/aws-attack-surface-enum/main/aws-attack-surface-enum.sh
+curl -O https://raw.githubusercontent.com/TierZeroSecurity/aws-attack-surface-enum/main/aws-attack-surface-enum.sh
 chmod +x aws-attack-surface-enum.sh
 
 # Run scan (fast mode)
