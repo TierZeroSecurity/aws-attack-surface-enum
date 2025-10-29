@@ -394,13 +394,11 @@ The script requires read-only permissions across services. Use the provided Clou
 ```bash
 git clone https://github.com/TierZeroSecurity/aws-attack-surface-enum.git
 cd aws-attack-surface-enum
-chmod +x aws-attack-surface-enum.sh
 ```
 
 ### Option 2: Direct Download
 ```bash
 curl -O https://raw.githubusercontent.com/TierZeroSecurity/aws-attack-surface-enum/main/aws-attack-surface-enum.sh
-chmod +x aws-attack-surface-enum.sh
 ```
 
 ### Install Dependencies
@@ -758,7 +756,6 @@ aws configure
 
 # Download script
 curl -O https://raw.githubusercontent.com/TierZeroSecurity/aws-attack-surface-enum/main/aws-attack-surface-enum.sh
-chmod +x aws-attack-surface-enum.sh
 
 # Run scan (fast mode)
 ./aws-attack-surface-enum.sh --yes --parallel --jobs 10
