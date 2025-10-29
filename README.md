@@ -628,7 +628,7 @@ public-assets,us-west-2,2023-05-20T14:22:00Z,Yes,Yes,Not-blocked,Yes,Yes
 | Large (1000+) | 1 | Sequential | 20-25 min | Too slow |
 | Large (1000+) | 16 | Parallel (15 jobs) | 18-28 min | **Recommended** |
 
-### Multi-Account Performance (160 accounts)
+### Multi-Account Performance (150 accounts)
 
 | Configuration | Total Time | Notes |
 |---------------|------------|-------|
