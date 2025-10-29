@@ -726,13 +726,6 @@ If you discover vulnerabilities:
 3. **Follow** responsible disclosure practices
 4. **Document** findings professionally
 
-### Legal Framework
-
-Using this tool without authorisation may violate:
-- Computer Fraud and Abuse Act (CFAA) - US
-- Computer Misuse Act - UK
-- Similar laws in other jurisdictions
-
 **⚠️ The authors assume no liability for misuse of this tool.**
 
 ---
