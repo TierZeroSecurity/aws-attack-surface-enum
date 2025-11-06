@@ -394,13 +394,11 @@ The script requires read-only permissions across services. Use the provided Clou
 ```bash
 git clone https://github.com/TierZeroSecurity/aws-attack-surface-enum.git
 cd aws-attack-surface-enum
-chmod +x aws-attack-surface-enum.sh
 ```
 
 ### Option 2: Direct Download
 ```bash
 curl -O https://raw.githubusercontent.com/TierZeroSecurity/aws-attack-surface-enum/main/aws-attack-surface-enum.sh
-chmod +x aws-attack-surface-enum.sh
 ```
 
 ### Install Dependencies
@@ -628,7 +626,7 @@ public-assets,us-west-2,2023-05-20T14:22:00Z,Yes,Yes,Not-blocked,Yes,Yes
 | Large (1000+) | 1 | Sequential | 20-25 min | Too slow |
 | Large (1000+) | 16 | Parallel (15 jobs) | 18-28 min | **Recommended** |
 
-### Multi-Account Performance (160 accounts)
+### Multi-Account Performance (150 accounts)
 
 | Configuration | Total Time | Notes |
 |---------------|------------|-------|
@@ -728,13 +726,6 @@ If you discover vulnerabilities:
 3. **Follow** responsible disclosure practices
 4. **Document** findings professionally
 
-### Legal Framework
-
-Using this tool without authorisation may violate:
-- Computer Fraud and Abuse Act (CFAA) - US
-- Computer Misuse Act - UK
-- Similar laws in other jurisdictions
-
 **⚠️ The authors assume no liability for misuse of this tool.**
 
 ---
@@ -758,7 +749,6 @@ aws configure
 
 # Download script
 curl -O https://raw.githubusercontent.com/TierZeroSecurity/aws-attack-surface-enum/main/aws-attack-surface-enum.sh
-chmod +x aws-attack-surface-enum.sh
 
 # Run scan (fast mode)
 ./aws-attack-surface-enum.sh --yes --parallel --jobs 10
